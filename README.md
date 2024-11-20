@@ -1,3 +1,6 @@
+Here's a markdown README for your GitHub repository that you can directly copy and paste:
+
+```markdown
 # Score-Based Generative Models Implementation
 
 This repository contains implementations of Score-Based Generative Models, including a Noise Conditioned Score Network (NCSN) and a VQ-VAE enhanced NCSN model. The models are implemented in PyTorch and trained on image datasets.
@@ -43,3 +46,60 @@ model_config = {
     'num_up_layers': 1,
     'num_heads': 16
 }
+```
+
+## VQ-VAE Configuration
+
+```python
+dimension_of_codebook_vectors = 128
+number_of_codebook_vectors = 1024
+commitment_cost = 1
+```
+
+## Usage
+
+### Training NCSN
+```python
+model = Unet(model_config).to(device)
+optimizer = torch.optim.Adam(model.parameters(), lr=1e-5)
+# Train the model with custom noise schedule
+```
+
+### Training VQ-VAE Enhanced NCSN
+```python
+vqvae = VQVAE(embedding_dim=embedding_dim, num_embeddings=num_embeddings)
+latent_unet = Unet(model_config).to(device)
+# Train on VQ-VAE latent representations
+```
+
+### Sampling
+```python
+# Standard NCSN sampling
+images = ALD(model, sigmas=sigmas, num_samples=100)
+
+# VQ-VAE enhanced sampling
+images = ALD_vqvae(model, sigmas=sigmas, num_samples=100)
+```
+
+## Features
+- Configurable architecture components
+- Multiple noise schedules
+- FID score evaluation
+- Support for different datasets
+- Modular implementation for easy modifications
+
+## Requirements
+- PyTorch
+- torchvision
+- numpy
+- scipy
+- tqdm
+- matplotlib
+
+## References
+- Adapted from https://github.com/explainingai-code/DDPM-Pytorch
+- Implementation based on Score-Based Generative Modeling research
+
+## License
+[MIT License](LICENSE)
+```
