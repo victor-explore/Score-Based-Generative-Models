@@ -99,4 +99,3 @@ images = ALD_vqvae(model, sigmas=sigmas, num_samples=100)
 
 ## License
 [MIT License](LICENSE)
-```
