@@ -1,6 +1,3 @@
-Here's a markdown README for your GitHub repository that you can directly copy and paste:
-
-```markdown
 # Score-Based Generative Models Implementation
 
 This repository contains implementations of Score-Based Generative Models, including a Noise Conditioned Score Network (NCSN) and a VQ-VAE enhanced NCSN model. The models are implemented in PyTorch and trained on image datasets.
